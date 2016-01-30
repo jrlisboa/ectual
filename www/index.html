@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript" src="jquery.min.js"></script>
+<link rel="stylesheet" href="style.css" />
+<script>
+$(document).ready(function(e) {
+	var action = "getSession";
+   $.ajax({url:"http://localhost:8080/app/login.php",type:"POST",data:{acao:action},success: function(data){
+	
+		if(data == 1){
+			window.location.href = "logado.html";
+		}
+		}});
+});
+function logar(){
+var login = $("#login").val();
+var senha = $("#senha").val();
+
+var action = "login";
+var formData = {acao:action,login:login,senha:senha}; //Array
+$.ajax({url:"http://localhost:8080/app/login.php",type:"POST",data:formData,success: function(data, textStatus, jqXHR)
+    {
+
+       if(data == 1){
+		  	window.location.href = "logado.html";
+		   }
+    },
+    error: function (jqXHR, textStatus, errorThrown)
+    {
+ 
+    }
+})};
+
+</script>
+</head>
+    
+<body>
+    
+    <div id="loader">
+        <div class="imagem" id="imagem"></div>
+    </div>
+    <div align="center"><h1>Seja Bem vindo</h1></div>
+    
+    <div align="center">
+        <form>
+	        Login: <input type="text" id="login"></input><br><br>
+            Senha: <input type="password" id="senha"></input><br><br>
+    
+            <input type="button" value="Logar" onClick="logar()"></input>
+        </form>
+    </div>
+
+    
+    <script type="text/javascript">
+        //ESSE AQUI é o script que possui a função em jquery para a splash screen
+		jQuery(window).load(function() {
+			
+			jQuery("#loader").delay(2000).fadeOut("slow");
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+div#loader{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left:0px;
+	background-color: #11364a;
+}
+
+.imagem{
+
+	background-image: url('full-logo-icon.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 20%;
+	background-image: url("full-logo-icon.png");
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-size: cover;
+	animation: nans 2s;
+}
